@@ -1,26 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
-import { NavbarComponent } from "./navbar/navbar.component";
+import { BackendService } from './shared/backend.service';
+import { SharedModule } from './shared/shared.module';
+import { StoreService } from './shared/store.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, NavbarComponent],
+  imports: [RouterOutlet, HeaderComponent, SharedModule],
+  providers: [BackendService, StoreService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  
-  public firstName = 'Tom';
-  public lastName = 'Turbo';
+export class AppComponent implements OnInit {
 
-  public firstNumber = 1;
-  public secondNumber = 2;
+  constructor(private backendService: BackendService, public storeService: StoreService) {}
 
-  buttonClicked() {
-    console.log("Button was clicked");
+  ngOnInit() {
+    this.backendService.getCourses();
+    this.backendService.getRegistrations(this.storeService.currentPage);
   }
-
 }

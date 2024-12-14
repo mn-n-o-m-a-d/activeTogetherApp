@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "activeTogetherApp": {
+    "ActiveTogetherApp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,10 +24,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -55,7 +56,9 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "ssr": false,
+              "prerender": false
             }
           },
           "defaultConfiguration": "production"
@@ -64,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "activeTogetherApp:build:production"
+              "buildTarget": "ActiveTogetherApp:build:production"
             },
             "development": {
-              "buildTarget": "activeTogetherApp:build:development"
+              "buildTarget": "ActiveTogetherApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,15 +93,16 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "12908c3b-d12e-46b1-91dc-387b672f1c02"
+    "analytics": "1960573d-447f-44a9-a1b8-d4f62fc8a372"
   }
 }
