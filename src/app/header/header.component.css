@@ -1,9 +1,29 @@
-.flex {
+.header-container {
     display: flex;
-}
-
-img {
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: auto;
-    max-width: 200px;
-}
+  }
+  
+  .header-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-title h1 {
+    margin-right: 20px;
+  }
+  
+  .header-logo {
+    height: 40px;
+  }
+  
+  .header-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  mat-toolbar {
+    padding: 0 1rem;
+  }
+  

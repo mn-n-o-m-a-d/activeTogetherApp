@@ -1,1 +1,6 @@
-<button (click)="buttonClicked()">{{showForm ? "Formular schließen": 'Formular öffnen'}}</button>
+<button mat-raised-button color="primary" (click)="buttonClicked()">
+    <mat-icon *ngIf="showForm">close</mat-icon>
+    <mat-icon *ngIf="!showForm">add</mat-icon>
+    {{ showForm ? "Formular schließen" : "Formular öffnen" }}
+  </button>
+  
